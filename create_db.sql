@@ -1,4 +1,5 @@
 if not exists(select * from sys.databases where name = 'Company')
 begin
-	create database Company	
+	create database Example
 end;
+go

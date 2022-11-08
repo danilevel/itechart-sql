@@ -1,17 +1,20 @@
 use Company;
+go
 
 select		emp.[name], emp.[birth_date]
 from		Employee as emp
 where		emp.[birth_date] = (select		min(emp.[birth_date])
 							    from		Employee as emp)
+go
 
 
 select		emp.[surname]
 from		Employee as emp, Salary as sal
 where		sal.[id_employee] = emp.[id] and
-			sal.[month] = 1 and
-			sal.[year] = 2015
-
+			sal.[month] = (select		sal.[month]
+						   where		sal.[month]  = 1 and
+										sal.[year] = 2015)
+go
 
 
 select		emp.[id]
@@ -25,7 +28,7 @@ where		sal.[id_employee] = emp.[id] and
 										subEmp.[id] = emp.[id] and
 										subSal.[year] = 2015 and
 										subSal.[month] < 5)
-
+go
 
 
 select		dep.[id], dep.[name],
@@ -36,3 +39,4 @@ select		dep.[id], dep.[name],
 						subDep.[id] = dep.[id])
 						as employeesCount
 from		Department as dep
+go

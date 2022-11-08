@@ -1,6 +1,7 @@
 use Company;
+go
 
-if not exists(select * from sys.tables where name = 'Department')
+if not exists(select * from INFORMATION_SCHEMA.TABLES where TABLE_NAME = 'Department')
 begin
 	create table [Department](
 		[id] int primary key identity,
@@ -8,8 +9,9 @@ begin
 		[address] nvarchar(100) not null
 	)
 end;
+go
 
-if not exists(select * from sys.tables where name = 'Employee')
+if not exists(select * from INFORMATION_SCHEMA.TABLES where TABLE_NAME = 'Employee')
 begin
 	create table [Employee](
 		[id] int primary key identity,
@@ -18,8 +20,9 @@ begin
 		[birth_date] date check([birth_date] > '1900-01-01' and [birth_date] < '2005-01-01') not null
 	)
 end;
+go
 
-if not exists(select * from sys.tables where name = 'Job')
+if not exists(select * from INFORMATION_SCHEMA.TABLES where TABLE_NAME = 'Job')
 begin
 	create table [Job](
 		[id] int primary key identity,
@@ -27,8 +30,9 @@ begin
 		[min_salary] decimal(10,2) not null
 	)
 end;
+go
 
-if not exists(select * from sys.tables where name = 'Career')
+if not exists(select * from INFORMATION_SCHEMA.TABLES where TABLE_NAME = 'Career')
 begin
 	create table [Career](
 		[id] int primary key identity,
@@ -42,8 +46,9 @@ begin
 		constraint [FK_departments] foreign key(id_department) references [Department] (id) on delete cascade
 	)
 end;
+go
 
-if not exists(select * from sys.tables where name = 'Salary')
+if not exists(select * from INFORMATION_SCHEMA.TABLES where TABLE_NAME = 'Salary')
 begin
 	create table [Salary](
 		[id] int primary key identity,
@@ -54,3 +59,4 @@ begin
 		constraint [FK_employees1] foreign key(id_employee) references [Employee] (id) on delete cascade,
 	)
 end;
+go

@@ -1,5 +1,7 @@
+use Company;
+go
 
-create function getAccruedSalary(@employee int, @year int)
+create or alter function getAccruedSalary(@employee int, @year int)
 returns decimal(18,2)
 begin
 return	(select			sum(sal.[salary])
@@ -8,3 +10,4 @@ return	(select			sum(sal.[salary])
 						emp.[id] = @employee and
 						sal.[year] = @year)
 end;
+go

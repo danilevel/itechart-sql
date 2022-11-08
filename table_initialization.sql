@@ -1,16 +1,19 @@
 use Company;
 
+
 delete from Department;
 delete from Employee;
 delete from Job;
 delete from Career;
 delete from Salary;
 
+
 dbcc checkident ('[Department]', RESEED, 0);
 dbcc checkident ('[Employee]', RESEED, 0);
 dbcc checkident ('[Job]', RESEED, 0);
 dbcc checkident ('[Career]', RESEED, 0);
 dbcc checkident ('[Salary]', RESEED, 0);
+
 
 insert Department
 values
@@ -19,16 +22,17 @@ values
 ('Front-end', 'M1'),
 ('Tester', 'M1')
 
+
 insert Employee
 values
-('Danil', 'Chernyshov', '2002-09-10'),
-('Ksenia', 'Lashchynouskaya', '2000-01-01'),
-('Sergey', 'Kavaliou', '2000-01-01'),
-('Andrey', 'Kisel', '2001-10-18'),
-('Nikita', 'Kyzmenok', '2002-03-07'),
-('Denis', 'leonenko', '2002-06-30'),
-('Maksim', 'Rozkov', '2002-07-01'),
-('Alina', 'Navoeva', '2002-04-28')
+('Danil', 'Chernyshov', '2002-09-10', 'danil.cher57@gmail.com'),
+('Ksenia', 'Lashchynouskaya', '2000-01-01', 'Ksenia@gmail.com'),
+('Sergey', 'Kavaliou', '2000-01-01', 'Sergey@gmail.com'),
+('Andrey', 'Kisel', '2001-10-18', 'Andrey@gmail.com'),
+('Nikita', 'Kyzmenok', '2002-03-07', 'Nikita@gmail.com'),
+('Denis', 'leonenko', '2002-06-30', 'Denis@gmail.com'),
+('Maksim', 'Rozkov', '2002-07-01', 'Maksim@gmail.com'),
+('Alina', 'Navoeva', '2002-04-28', 'Alina@gmail.com')
 
 insert Job
 values

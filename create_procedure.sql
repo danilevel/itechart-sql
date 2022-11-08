@@ -1,10 +1,7 @@
+use Company;
+go
 
---6
---if not exists(select * from sys.procedures where name = 'EmployeesDepartments') 
---begin
---end; - with this block i get error!!!
-
-create procedure jobHistory
+create or alter procedure jobHistory
 	@employee nvarchar(100)
 as
 select		emp.[id], emp.[name], job.[name] as Position
